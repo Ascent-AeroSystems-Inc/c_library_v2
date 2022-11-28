@@ -4153,11 +4153,10 @@ static void mavlink_test_ascent_remote_id(uint8_t system_id, uint8_t component_i
         uint8_t buffer[MAVLINK_MAX_PACKET_LEN];
         uint16_t i;
     mavlink_ascent_remote_id_t packet_in = {
-        963497464,17,84,151
+        5,72,139
     };
     mavlink_ascent_remote_id_t packet1, packet2;
         memset(&packet1, 0, sizeof(packet1));
-        packet1.time_boot_ms = packet_in.time_boot_ms;
         packet1.target_system = packet_in.target_system;
         packet1.target_component = packet_in.target_component;
         packet1.health = packet_in.health;
@@ -4175,12 +4174,12 @@ static void mavlink_test_ascent_remote_id(uint8_t system_id, uint8_t component_i
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ascent_remote_id_pack(system_id, component_id, &msg , packet1.target_system , packet1.target_component , packet1.time_boot_ms , packet1.health );
+    mavlink_msg_ascent_remote_id_pack(system_id, component_id, &msg , packet1.target_system , packet1.target_component , packet1.health );
     mavlink_msg_ascent_remote_id_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ascent_remote_id_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.target_system , packet1.target_component , packet1.time_boot_ms , packet1.health );
+    mavlink_msg_ascent_remote_id_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.target_system , packet1.target_component , packet1.health );
     mavlink_msg_ascent_remote_id_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
@@ -4193,7 +4192,7 @@ static void mavlink_test_ascent_remote_id(uint8_t system_id, uint8_t component_i
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
         
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ascent_remote_id_send(MAVLINK_COMM_1 , packet1.target_system , packet1.target_component , packet1.time_boot_ms , packet1.health );
+    mavlink_msg_ascent_remote_id_send(MAVLINK_COMM_1 , packet1.target_system , packet1.target_component , packet1.health );
     mavlink_msg_ascent_remote_id_decode(last_msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
