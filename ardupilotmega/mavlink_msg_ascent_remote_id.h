@@ -1,7 +1,7 @@
 #pragma once
 // MESSAGE ASCENT_REMOTE_ID PACKING
 
-#define MAVLINK_MSG_ID_ASCENT_REMOTE_ID 62122
+#define MAVLINK_MSG_ID_ASCENT_REMOTE_ID 11060
 
 
 typedef struct __mavlink_ascent_remote_id_t {
@@ -12,17 +12,17 @@ typedef struct __mavlink_ascent_remote_id_t {
 
 #define MAVLINK_MSG_ID_ASCENT_REMOTE_ID_LEN 3
 #define MAVLINK_MSG_ID_ASCENT_REMOTE_ID_MIN_LEN 3
-#define MAVLINK_MSG_ID_62122_LEN 3
-#define MAVLINK_MSG_ID_62122_MIN_LEN 3
+#define MAVLINK_MSG_ID_11060_LEN 3
+#define MAVLINK_MSG_ID_11060_MIN_LEN 3
 
 #define MAVLINK_MSG_ID_ASCENT_REMOTE_ID_CRC 183
-#define MAVLINK_MSG_ID_62122_CRC 183
+#define MAVLINK_MSG_ID_11060_CRC 183
 
 
 
 #if MAVLINK_COMMAND_24BIT
 #define MAVLINK_MESSAGE_INFO_ASCENT_REMOTE_ID { \
-    62122, \
+    11060, \
     "ASCENT_REMOTE_ID", \
     3, \
     {  { "target_system", NULL, MAVLINK_TYPE_UINT8_T, 0, 0, offsetof(mavlink_ascent_remote_id_t, target_system) }, \
@@ -182,7 +182,7 @@ static inline void mavlink_msg_ascent_remote_id_send_struct(mavlink_channel_t ch
 
 #if MAVLINK_MSG_ID_ASCENT_REMOTE_ID_LEN <= MAVLINK_MAX_PAYLOAD_LEN
 /*
-  This variant of _send() can be used to save stack space by re-using
+  This varient of _send() can be used to save stack space by re-using
   memory from the receive buffer.  The caller provides a
   mavlink_message_t which is the size of a full mavlink message. This
   is usually the receive buffer for the channel, and allows a reply to an
